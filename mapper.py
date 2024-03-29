@@ -2,8 +2,10 @@ from file_manager import FileManager
 
 
 class Mapper():
+    """mapping a dictionary to mapping csv file fieldss.
+    creates destination fields and removes source fields."""
 
-    MAPPER_FILE_ADDRESS = 'mappings.csv'
+    MAPPER_FILE_ADDRESS = 'mappings.csv' # can make it dynamic
 
     MAPPING = []
 
@@ -12,10 +14,15 @@ class Mapper():
         self.generate_mapping_dict()
 
     def generate_mapping_dict(self) -> None:
+        """generating a mapping dictionary with destination and source key, values."""
+
         while mappig := self.mapper_file.get_row_data():
             self.MAPPING.append(mappig)
 
     def map(self, data: dict) -> dict | None:
+        """mapping a dictionary to desired values. 
+        adds new destination fields and removes source fields."""
+
         if not data:
             return None
 
