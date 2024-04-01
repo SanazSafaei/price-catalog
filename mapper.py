@@ -29,10 +29,14 @@ class Mapper():
         for mapping in self.MAPPING:
             source_types = mapping['source_type'].split('|')
             sources = mapping['source'].split('|')
+            match = True
             for source_type, source in zip(source_types, sources):
-                if data.get(source_type) and source == data[source_type]:
-                    data.pop(source_type)
-                    data[mapping['destination_type']] = mapping['destination']
+                if not data.get(source_type) or source != data[source_type]:
+                    # data.pop(source_type) #remove it!
+                    match = False
+                    break
+            if match:
+                data[mapping['destination_type']] = mapping['destination']
 
         return data
 
