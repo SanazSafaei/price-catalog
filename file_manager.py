@@ -10,8 +10,10 @@ class FileManager():
 
     def get_row_data(self) -> dict | None:
         """reading each line of file and convert it to dict."""
+        row = self.file.readline()  #skip \n character
+        if '\n' in row:
+            row = row[:-1]  #skip \n character
 
-        row = self.file.readline()[:-1]  #skip \n character
         if row == '':
             self.file.close()
             return None
@@ -34,8 +36,9 @@ class FileManager():
 
     def generate_headline(self) -> None:
         """generating dict's keys from the first line of fifle."""
-
-        first_line = self.file.readline()[:-1]  #skip \n character
+        first_line = self.file.readline()
+        if '\n' in first_line:
+            first_line = first_line[:-1]  #skip \n character
 
         if first_line == '':
             self.file.close()
