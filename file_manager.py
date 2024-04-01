@@ -6,7 +6,7 @@ class FileManager():
         """opening file and get the first line to define columns."""
 
         self.file = open(address, 'r', encoding="utf-8")
-        self.generate_headline()
+        self._generate_headline()
 
     def get_row_data(self) -> dict | None:
         """reading each line of file and convert it to dict."""
@@ -26,7 +26,6 @@ class FileManager():
 
     def get_all_data(self) -> list: # is it needed?
         """returns a list of objects from file's data."""
-
         data = []
 
         while row := self.get_row_data():
@@ -34,16 +33,15 @@ class FileManager():
 
         return row
 
-    def generate_headline(self) -> None:
+    def _generate_headline(self) -> None:
         """generating dict's keys from the first line of fifle."""
         first_line = self.file.readline()
+
+        if not first_line:
+            raise ValueError('empty file')
+
         if '\n' in first_line:
             first_line = first_line[:-1]  #skip \n character
-
-        if first_line == '':
-            self.file.close()
-            self.headlines = None
-            return
 
         self.headlines = first_line.split(';')
 
