@@ -4,15 +4,15 @@ from file_manager import FileManager
 
 class TestFileManager(unittest.TestCase):
 
-    def test_head_lines(self):
+    def test_detect_first_line_fields(self):
         headline = ['source', 'destination', 'source_type', 'destination_type']
         mapper_file = FileManager('mappings.csv')
         self.assertEqual(headline, mapper_file.headlines)
 
-    def test_empty_file(self):
-        headline = None
-        file = FileManager('test.csv')
-        self.assertEqual(file.headlines, headline)
+    def test_error_on_empty_file(self):
+
+        with self.assertRaises(ValueError):
+            FileManager('test.csv')
 
     def test_row_data(self):
         data = {
