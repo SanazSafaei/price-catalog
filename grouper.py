@@ -24,42 +24,46 @@ class Grouper():
                             common_field_value.pop(filed)
 
             return common_field_value
-        
+
         except Exception:
             raise ValueError('data is not valid.')
 
-    def group_by_spesefic_field(self, article_identifier_name: str) -> dict:
+
+    def group_by_spesefic_field(self, article_identifier_name: str) -> tuple[dict, dict]:
         """"classify a list of dictionary with a identifier and
         find objects common {article_identifier_name: values}"""
+        try:
+            grouped_items = {}
+            common_field_value = {}
+            deleted_fields = []
 
-        grouped_items = {}
-        common_field_value = {}
-        deleted_fields = []
+            for item in self.data_list:
 
-        for item in self.data_list:
+                if item.get(article_identifier_name) and item.get(article_identifier_name) in grouped_items:
+                    grouped_items[item[article_identifier_name]].append(item)
 
-            if item.get(article_identifier_name) and item.get(article_identifier_name) in grouped_items:
-                grouped_items[item[article_identifier_name]].append(item)
+                    common_field_value_copy = common_field_value.copy()
+                    for item_field, value_lists in common_field_value_copy.items():
 
-                common_field_value_copy = common_field_value.copy()
-                for item_field, value_lists in common_field_value_copy.items():
+                        if ((value_lists.get(item[article_identifier_name]) and 
+                            item[item_field] != value_lists[item[article_identifier_name]]) or
+                            not value_lists.get(item[article_identifier_name])) :
 
-                    if ((value_lists.get(item[article_identifier_name]) and 
-                         item[item_field] != value_lists[item[article_identifier_name]]) or
-                         not value_lists.get(item[article_identifier_name])) :
+                            deleted_fields.append(item_field)
+                            common_field_value.pop(item_field)
 
-                        deleted_fields.append(item_field)
-                        common_field_value.pop(item_field)
+                else:
+                    grouped_items[item[article_identifier_name]] = [item]
+                    for item_field in item:
+                        if item_field not in deleted_fields:
 
-            else:
-                grouped_items[item[article_identifier_name]] = [item]
-                for item_field in item:
-                    if item_field not in deleted_fields:
+                            if common_field_value.get(item_field):
+                                common_field_value.get(item_field).update({item[article_identifier_name]: item[item_field]})
+                            else:
+                                val = {item[article_identifier_name]: item[item_field]}
+                                common_field_value[item_field] = val
 
-                        if common_field_value.get(item_field):
-                            common_field_value.get(item_field).update({item[article_identifier_name]: item[item_field]})
-                        else:
-                            val = {item[article_identifier_name]: item[item_field]}
-                            common_field_value[item_field] = val
-
-        return grouped_items, common_field_value
+            return grouped_items, common_field_value
+        
+        except Exception:
+            raise ValueError('data is not valid.')
