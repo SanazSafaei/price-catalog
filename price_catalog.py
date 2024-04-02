@@ -33,7 +33,7 @@ class PriceCatalog():
 
         catalog = Catalog()
         grouper = Grouper(self.all_data)
-        catalog_fields = grouper.group_common_field_values()
+        catalog_fields = grouper.find_common_fields_with_values()
         catalog.set_fields(catalog_fields)
 
         #--------------------------------------------#

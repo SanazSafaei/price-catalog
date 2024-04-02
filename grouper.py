@@ -6,23 +6,27 @@ class Grouper():
     def __init__(self, data_list: list) -> None:
         self.data_list = data_list
 
-    def group_common_field_values(self) -> list:
+    def find_common_fields_with_values(self) -> list:
         """"classify a list of dictionary to their common {field: values}"""
 
-        common_field_value = {}
+        try:
+            common_field_value = {}
 
-        for item in self.data_list:
+            for item in self.data_list:
 
-            if not common_field_value:
-                common_field_value = item.copy()
+                if not common_field_value:
+                    common_field_value = item.copy()
 
-            else:
-                common_field_value_temp = common_field_value.copy()
-                for filed, value in common_field_value_temp.items():
-                    if item.get(filed) != value:
-                        common_field_value.pop(filed)
+                else:
+                    common_field_value_temp = common_field_value.copy()
+                    for filed, value in common_field_value_temp.items():
+                        if item.get(filed) != value:
+                            common_field_value.pop(filed)
 
-        return common_field_value
+            return common_field_value
+        
+        except Exception:
+            raise ValueError('data is not valid.')
 
     def group_by_spesefic_field(self, article_identifier_name: str) -> dict:
         """"classify a list of dictionary with a identifier and
