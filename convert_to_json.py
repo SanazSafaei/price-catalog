@@ -15,4 +15,5 @@ class ConverToJson():
             article_data['variations'] = article.variations
             json_data['articles'].append(article.fields | {'variation': article.variations})
 
-        return json.dumps(json_data)   
+        with open("json_price_catalog.json", "w", encoding="utf-8") as file:
+            json.dump(json_data, file)
