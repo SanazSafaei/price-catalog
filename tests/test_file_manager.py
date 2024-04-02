@@ -6,8 +6,7 @@ class TestFileManager(unittest.TestCase):
 
     def test_detect_first_line_fields(self):
         headline = ['source', 'destination', 'source_type', 'destination_type']
-        mapper_file = FileManager('mappings.csv')
-        self.assertEqual(headline, mapper_file.headlines)
+        self.assertEqual(headline, self.mapper_file.headlines)
 
     def test_error_on_empty_file(self):
 
@@ -21,8 +20,14 @@ class TestFileManager(unittest.TestCase):
             'source_type': 'season',
             'destination_type': 'season'
             }
-        mapper_file = FileManager('mappings.csv')
-        self.assertDictEqual(data, mapper_file.get_row_data())
+        self.assertDictEqual(data, self.mapper_file.get_row_data())
+
+    def setUp(self) -> None:
+        self.mapper_file = FileManager('mappings.csv')
+        return super().setUp()
+
+    def tearDown(self):
+        self.mapper_file.file.close()
 
 
 if __name__ == '__main__':
