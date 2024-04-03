@@ -28,9 +28,16 @@ coverage html
 
 
 ## Usage
-1. add your pricat.csv file in project directory.
-2. add your mapping.csv file in project directory.
-3. if you want to combine multiple fields you need to add the field names in mappings.csv file with empty source and destination value. this is a sample of mapping.csv with customised field:
+
+0. You can run program with default values with below command.
+
+```bash
+python3 main.py
+```
+
+1. Add your pricat.csv file in project directory or pass the file address as input argument with -f.
+2. Add your mapping.csv file in project directory or pass the file address as input argument with -m.
+3. If you want to combine multiple fields you need to add the field names in mappings.csv file with empty source and destination value. this is a sample of mapping.csv with customised field:
 
 ```
 source;destination;source_type;destination_type
@@ -38,10 +45,23 @@ winter;Winter;season;season
 ;;price_buy_net|currency;
 ```
 
-4. run command below.
+4.The defualt article identifier field is article_number, if you want to customize it you need to use -a flag.
 
 ```bash
-python3 main.py
+python3 main.py --help
+
+#usage: main.py [-h] [-f FILE_PATH] [-m MAPPER_PATH] [-a ARTICLE_IDENTIFIER]
+
+#Process catlog csv data and convert it to json file.
+
+# options:
+#   -h, --help            show this help message and exit
+#   -f FILE_PATH, --filename FILE_PATH
+#                         Path of data file. sample /dir/pricat.csv
+#   -m MAPPER_PATH, --mapper MAPPER_PATH
+#                         Path of mapping file. sample /dir/mapping.csv
+#   -a ARTICLE_IDENTIFIER, --article_identifier ARTICLE_IDENTIFIER
+#                         Path of mapping file. sample article_identifierpricat.csv
 ```
 
 ## Test Section
