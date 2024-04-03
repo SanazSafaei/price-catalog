@@ -17,8 +17,6 @@ class ConverToJson():
 
             json_data['Catalog']['Articles'] = []
             for article in catalog.articles:
-                # article_data = article.fields.copy()
-                # article_data['Variation'] = article.variations
                 json_data['Catalog']['Articles'].append(article.fields | {'Variations': article.variations})
 
             with open(json_file_address+".json", "w", encoding="utf-8") as file:
