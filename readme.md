@@ -40,17 +40,21 @@ python3 main.py
 ## Test Section
 Here is the report of test converage of current project.
 
-| Name                       |    Stmts |     Miss |   Cover |
-|--------------------------- | -------: | -------: | ------: |
-| article.py                 |       10 |        0 |    100% |
-| catalog.py                 |        8 |        0 |    100% |
-| convert\_to\_json.py       |       15 |        0 |    100% |
-| file\_manager.py           |       28 |        4 |     86% |
-| mapper.py                  |       24 |        0 |    100% |
-| test\_convert\_to\_json.py |       24 |        0 |    100% |
-| test\_file\_manager.py     |       16 |        1 |     94% |
-| test\_mapper.py            |       26 |        0 |    100% |
-|                  **TOTAL** |  **151** |    **5** | **97%** |
+| Name                             |    Stmts |     Miss |   Cover |
+|--------------------------------- | -------: | -------: | ------: |
+| article.py                       |        9 |        0 |    100% |
+| catalog.py                       |        8 |        0 |    100% |
+| convert\_to\_json.py             |       15 |        0 |    100% |
+| file\_manager.py                 |       28 |        4 |     86% |
+| grouper.py                       |       39 |        0 |    100% |
+| mapper.py                        |       24 |        0 |    100% |
+| price\_catalog.py                |       32 |        0 |    100% |
+| tests/test\_convert\_to\_json.py |       24 |        0 |    100% |
+| tests/test\_file\_manager.py     |       19 |        1 |     95% |
+| tests/test\_grouper.py           |       40 |        0 |    100% |
+| tests/test\_mapper.py            |       26 |        0 |    100% |
+| tests/test\_price\_catalog.py    |       30 |        0 |    100% |
+|                        **TOTAL** |  **294** |    **5** | **98%** |
 
 ## License
 
