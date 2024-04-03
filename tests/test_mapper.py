@@ -93,7 +93,8 @@ class TestMapper(unittest.TestCase):
             'discount_rate': '',
             'price_sell': '139.95',
             'material': 'Aviation',
-            'target_area': 'Woman Shoes'
+            'target_area': 'Woman Shoes',
+            'price_buy_net_currency': '58.5 EUR'
         }
 
         mapper = Mapper()
