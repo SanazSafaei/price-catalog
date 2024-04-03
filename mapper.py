@@ -17,6 +17,16 @@ class Mapper():
         """generating a mapping dictionary with destination and source key, values."""
 
         while mappig := self.mapper_file.get_row_data():
+            if not mappig['source'] and not mappig['destination']:
+                source_types = mappig['source_type'].split('|')
+                destination_type = ''
+                for source in source_types:
+                    if destination_type:
+                        destination_type = f'{destination_type}_{source}'
+                    else:
+                        destination_type = source
+
+                mappig['destination_type'] = destination_type
             self.MAPPING.append(mappig)
 
     def map(self, data: dict) -> dict | None:
@@ -31,12 +41,21 @@ class Mapper():
             sources = mapping['source'].split('|')
             match = True
             for source_type, source in zip(source_types, sources):
+
+                if not mapping['source'] and not mapping['destination']:
+                    continue
+
                 if not data.get(source_type) or source != data[source_type]:
-                    # data.pop(source_type) #remove it!
                     match = False
                     break
-            if match:
-                data[mapping['destination_type']] = mapping['destination']
 
+            if match:
+                if not mapping['source'] and not mapping['destination']:
+                    destination_value = ''
+                    for source_type in source_types:
+                        destination_value = f"{destination_value} {data[source_type]}"
+                    data[mapping['destination_type']] = destination_value
+                else:
+                    data[mapping['destination_type']] = mapping['destination']
         return data
 
