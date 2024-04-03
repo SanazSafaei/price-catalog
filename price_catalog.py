@@ -5,14 +5,13 @@ from catalog import Catalog
 from article import Article
 
 class PriceCatalog():
-    """?"""
+    """recives a price catlog csv adress and generates a catlog object."""
 
     all_data = []
 
     def __init__(self, address: str) -> None:
         self.catalog_file = FileManager(address)
         self._set_all_data()
-        self._set_all_keys()
 
 
     def _set_all_data(self):
@@ -24,12 +23,8 @@ class PriceCatalog():
             self.all_data.append(mapper.map(x))
 
 
-    def _set_all_keys(self):
-        """generating catalog final columns name."""
-
-        self.catalog_keys = self.all_data[0].keys()
-
     def create_catalog(self, article_identifire_field: str) -> Catalog:
+        """generates a catlog object."""
 
         catalog = Catalog()
         grouper = Grouper(self.all_data)
