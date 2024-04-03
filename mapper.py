@@ -53,7 +53,10 @@ class Mapper():
                 if not mapping['source'] and not mapping['destination']:
                     destination_value = ''
                     for source_type in source_types:
-                        destination_value = f"{destination_value} {data[source_type]}"
+                        if destination_value:
+                            destination_value = f"{destination_value} {data[source_type]}"
+                        else:
+                            destination_value = data[source_type]
                     data[mapping['destination_type']] = destination_value
                 else:
                     data[mapping['destination_type']] = mapping['destination']
