@@ -52,12 +52,17 @@ class Mapper():
             if match:
                 if not mapping['source'] and not mapping['destination']:
                     destination_value = ''
+                    skip = False
                     for source_type in source_types:
                         if destination_value:
                             destination_value = f"{destination_value} {data[source_type]}"
-                        else:
+                        elif data.get(source_type):
                             destination_value = data[source_type]
-                    data[mapping['destination_type']] = destination_value
+                        else:
+                            skip = True
+                            break
+                    if not skip:
+                        data[mapping['destination_type']] = destination_value
                 else:
                     data[mapping['destination_type']] = mapping['destination']
         return data
