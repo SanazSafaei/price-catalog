@@ -21,10 +21,10 @@ class Main():
         parser.add_argument('-f', '--filename', dest='file_path', type=str, default='pricat.csv',
                             help='Path of data file. sample /dir/pricat.csv')
         parser.add_argument('-m','--mapper', dest='mapper_path',type=str, default='mappings.csv',
-                            help='Path of mapping file. sample /dir/pricat.csv')
+                            help='Path of mapping file. sample /dir/mapping.csv')
         parser.add_argument('-a' ,'--article_identifier', dest='article_identifier',
                             type=str, default='article_number',
-                            help='Path of mapping file. sample /dir/pricat.csv')
+                            help='Path of mapping file. sample article_identifier')
 
         return parser
 
