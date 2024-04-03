@@ -2,8 +2,6 @@
 
 class Article():
 
-    article_number = None
-
     def __init__(self, article_number: int = 0) -> None:
         self.article_number = article_number
         self.fields = []
