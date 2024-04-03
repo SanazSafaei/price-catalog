@@ -29,9 +29,16 @@ coverage html
 
 ## Usage
 1. add your pricat.csv file in project directory.
-2. add your mapper.csv file in project directory.
-3. if you have customize field add your json_config.csv file in project directory.
-4. run command below,
+2. add your mapping.csv file in project directory.
+3. if you want to combine multiple fields you need to add the field names in mappings.csv file with empty source and destination value. this is a sample of mapping.csv with customised field:
+
+```
+source;destination;source_type;destination_type
+winter;Winter;season;season
+;;price_buy_net|currency;
+```
+
+4. run command below.
 
 ```bash
 python3 main.py
