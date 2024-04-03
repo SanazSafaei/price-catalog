@@ -5,12 +5,10 @@ class Mapper():
     """mapping a dictionary to mapping csv file fieldss.
     creates destination fields and removes source fields."""
 
-    MAPPER_FILE_ADDRESS = 'mappings.csv' # can make it dynamic
-
     MAPPING = []
 
-    def __init__(self) -> None:
-        self.mapper_file = FileManager(self.MAPPER_FILE_ADDRESS)
+    def __init__(self, mapping_file_address: str) -> None:
+        self.mapper_file = FileManager(mapping_file_address)
         self.generate_mapping_dict()
 
     def generate_mapping_dict(self) -> None:

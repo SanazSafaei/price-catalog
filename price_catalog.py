@@ -9,8 +9,9 @@ class PriceCatalog():
 
     all_data = []
 
-    def __init__(self, address: str) -> None:
-        self.catalog_file = FileManager(address)
+    def __init__(self, catlog_data_file_address: str, mapping_file_address: str) -> None:
+        self.catalog_file = FileManager(catlog_data_file_address)
+        self.mapping_file_address = mapping_file_address
         self._set_all_data()
 
 
@@ -18,7 +19,7 @@ class PriceCatalog():
         """generating catalog mapped data."""
 
         self.all_data = []
-        mapper = Mapper()
+        mapper = Mapper(self.mapping_file_address)
         while x := self.catalog_file.get_row_data():
             self.all_data.append(mapper.map(x))
 

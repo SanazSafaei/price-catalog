@@ -115,7 +115,7 @@ class TestPriceCatalog(unittest.TestCase):
         expected_catlog.add_articles(article1)
         expected_catlog.add_articles(article2)
 
-        pricCat = PriceCatalog('tests/test_pricat.csv')
+        pricCat = PriceCatalog('tests/test_pricat.csv', 'mappings.csv')
         catlog = pricCat.create_catalog('article_number')
 
         self.assertIsInstance(catlog, Catalog)
