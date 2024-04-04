@@ -19,7 +19,7 @@ class ConverToJson:
             for article in catalog.articles:
                 json_data['Catalog']['Articles'].append(article.fields | {'Variations': article.variations})
 
-            with open(f'{json_file_address}.json', "w", encoding="utf-8") as file:
+            with open(json_file_address, "w", encoding="utf-8") as file:
                 json.dump(json_data, file)
 
         except TypeError:

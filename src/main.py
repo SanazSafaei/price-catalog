@@ -25,12 +25,9 @@ class Main:
         parser.add_argument('-a' ,'--article_identifier', dest='article_identifier',
                             type=str, default='article_number',
                             help='Path of mapping file. sample article_identifier')
-        parser.add_argument('-j' ,'--json_file_name', dest='sample/json_file_name',
-                            type=str, default='json_price_catalog',
+        parser.add_argument('-n' ,'--json_file_name', dest='json_file_name',
+                            type=str, default='sample/json_price_catalog.json',
                             help='Path of mapping file. sample json_response')
 
         return parser
 
-
-if __name__ == '__main__':
-    Main().main()
