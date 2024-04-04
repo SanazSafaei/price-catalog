@@ -5,7 +5,7 @@ class Mapper():
     """mapping a dictionary to mapping csv file fieldss.
     creates destination fields and removes source fields."""
 
-    MAPPING = []
+    mapping = []
 
     def __init__(self, mapping_file_address: str) -> None:
         self.mapper_file = FileManager(mapping_file_address)
@@ -17,15 +17,10 @@ class Mapper():
         while mappig := self.mapper_file.get_row_data():
             if not mappig['source'] and not mappig['destination']:
                 source_types = mappig['source_type'].split('|')
-                destination_type = ''
-                for source in source_types:
-                    if destination_type:
-                        destination_type = f'{destination_type}_{source}'
-                    else:
-                        destination_type = source
+                destination_type = '_'.join(source_types)
 
                 mappig['destination_type'] = destination_type
-            self.MAPPING.append(mappig)
+            self.mapping.append(mappig)
 
     def map(self, data: dict) -> dict[str, str] | None:
         """mapping a dictionary to desired values. 
@@ -34,7 +29,7 @@ class Mapper():
         if not data:
             return None
 
-        for mapping in self.MAPPING:
+        for mapping in self.mapping:
             source_types = mapping['source_type'].split('|')
             sources = mapping['source'].split('|')
             match = True
