@@ -5,7 +5,7 @@ from src.file_manager import FileManager
 class TestFileManager(unittest.TestCase):
 
     def setUp(self) -> None:
-        self.mapper_file = FileManager('mappings.csv')
+        self.mapper_file = FileManager('sample/mappings.csv')
         return super().setUp()
 
     def tearDown(self):

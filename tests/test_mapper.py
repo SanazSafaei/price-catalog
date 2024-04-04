@@ -11,7 +11,7 @@ class TestMapper(unittest.TestCase):
             'source_type': 'season',
             'destination_type': 'season'
             }
-        mapper = Mapper('mappings.csv')
+        mapper = Mapper('sample/mappings.csv')
         mapper_row = mapper.mapping[0]
         self.assertDictEqual(mapping_row, mapper_row)
 
@@ -39,7 +39,7 @@ class TestMapper(unittest.TestCase):
             'material': 'Aviation',
             'target_area': 'Woman Shoes'
             }
-        mapper = Mapper('mappings.csv')
+        mapper = Mapper('sample/mappings.csv')
         mapper.MAPPING = {}
         mapped_data = mapper.map(data)
         self.assertDictEqual(mapped_data, data)
@@ -97,13 +97,13 @@ class TestMapper(unittest.TestCase):
             'price_buy_net_currency': '58.5 EUR'
         }
 
-        mapper = Mapper('mappings.csv')
+        mapper = Mapper('sample/mappings.csv')
         mapped_data = mapper.map(data)
         self.assertDictEqual(mapped_data, response)
 
     def test_empty_input_map(self):
         data = {}
         response = None
-        mapper = Mapper('mappings.csv')
+        mapper = Mapper('sample/mappings.csv')
         mapped_data = mapper.map(data)
         self.assertEqual(mapped_data, response)

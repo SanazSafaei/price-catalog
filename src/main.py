@@ -18,14 +18,14 @@ class Main:
         """defines inputs and main --help fields"""
 
         parser = ArgumentParser(description='Process catlog csv data and convert it to json file.')
-        parser.add_argument('-f', '--filename', dest='file_path', type=str, default='pricat.csv',
+        parser.add_argument('-f', '--filename', dest='file_path', type=str, default='sample/pricat.csv',
                             help='Path of data file. sample /dir/pricat.csv')
-        parser.add_argument('-m','--mapper', dest='mapper_path',type=str, default='mappings.csv',
+        parser.add_argument('-m','--mapper', dest='mapper_path',type=str, default='sample/mappings.csv',
                             help='Path of mapping file. sample /dir/mapping.csv')
         parser.add_argument('-a' ,'--article_identifier', dest='article_identifier',
                             type=str, default='article_number',
                             help='Path of mapping file. sample article_identifier')
-        parser.add_argument('-j' ,'--json_file_name', dest='json_file_name',
+        parser.add_argument('-j' ,'--json_file_name', dest='sample/json_file_name',
                             type=str, default='json_price_catalog',
                             help='Path of mapping file. sample json_response')
 
