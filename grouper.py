@@ -29,7 +29,7 @@ class Grouper():
             raise ValueError('data is not valid.')
 
 
-    def group_by_spesefic_field(self, article_identifier_name: str) -> tuple[dict[str, str], dict[str, str]]:
+    def group_by_spesefic_field(self, article_identifier_name: str) -> tuple[dict[str, list[dict[str, str]]], dict[str, dict[str, str]]]:
         """"classify a list of dictionary with a identifier and
         find objects common {article_identifier_name: values}"""
         try:
