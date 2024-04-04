@@ -54,7 +54,7 @@ python3 run.py --help
 
 usage: run.py [-h] [-f FILE_PATH] [-m MAPPER_PATH] [-a ARTICLE_IDENTIFIER] [-n JSON_FILE_NAME]
 
-Process catlog csv data and convert it to json file.
+Process catalog csv data and convert it to json file.
 
 options:
   -h, --help            show this help message and exit

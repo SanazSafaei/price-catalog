@@ -34,7 +34,7 @@ class FileManager:
         return row
 
     def _generate_headline(self) -> None:
-        """generating dict's keys from the first line of fifle."""
+        """generating dict's keys from the first line of file."""
         first_line = self.file.readline()
 
         if not first_line:

@@ -8,7 +8,7 @@ class Article:
         self.variations = []
 
 
-    def add_varitaion(self, variation: dict):
+    def add_variation(self, variation: dict):
         self.variations.append(variation)
 
     def set_fields(self, fields: dict):

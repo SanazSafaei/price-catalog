@@ -1,7 +1,7 @@
 import json
 from src.dto.catalog import Catalog
 
-class ConverToJson:
+class ConvertToJson:
     """converts objects to a json object."""
 
     DEFAULT_JSON_FILE_ADDRESS = 'json_price_catalog'
@@ -9,7 +9,7 @@ class ConverToJson:
     def convert_catalog_to_json(
             self, catalog: Catalog,
             json_file_address: str = DEFAULT_JSON_FILE_ADDRESS):
-        """converts  Catlog object to a json object."""
+        """converts  catalog object to a json object."""
 
         try:
             json_data = {}

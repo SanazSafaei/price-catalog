@@ -68,7 +68,7 @@ class TestGrouper(unittest.TestCase):
 
             grouped_common = Grouper(input_data).find_common_fields_with_values()
 
-    def test_grouped_data_by_spesefic_field(self):
+    def test_grouped_data_by_specific_field(self):
 
         input_data = [
             {
@@ -130,7 +130,7 @@ class TestGrouper(unittest.TestCase):
             ]
         }
 
-        grouped_data, common_fields = Grouper(input_data).group_by_spesefic_field('field_3')
+        grouped_data, _ = Grouper(input_data).group_by_specific_field('field_3')
         
         self.assertDictEqual(grouped_data, expected_output)
 
@@ -178,20 +178,20 @@ class TestGrouper(unittest.TestCase):
                 'field_3': {3: 3 ,4: 4}
         }
 
-        grouped_data, common_fields = Grouper(input_data).group_by_spesefic_field('field_3')
+        _, common_fields = Grouper(input_data).group_by_specific_field('field_3')
         
         self.assertDictEqual(common_fields, expected_output)
 
-    def test_empty_list_in_group_by_spesefic_field(self):
+    def test_empty_list_in_group_by_specfic_field(self):
 
         input_data = []
         expected_output = {}
-        grouped_data, common_fields = Grouper(input_data).group_by_spesefic_field('field_3')
+        grouped_data, common_fields = Grouper(input_data).group_by_specific_field('field_3')
         
         self.assertDictEqual(common_fields, expected_output)
         self.assertDictEqual(grouped_data, expected_output)
 
-    def test_bad_structure_in_group_by_spesefic_field(self):
+    def test_bad_structure_in_group_by_specific_field(self):
         with self.assertRaises(ValueError):
             input_data = [
                 {
@@ -204,9 +204,9 @@ class TestGrouper(unittest.TestCase):
                     },
                 []
             ]
-            grouped_data, common_fields = Grouper(input_data).group_by_spesefic_field('field_3')
+            grouped_data, common_fields = Grouper(input_data).group_by_specific_field('field_3')
 
-    def test_not_available_identifire_in_group_by_spesefic_field(self):
+    def test_not_available_identifier_in_group_by_specific_field(self):
         
         with self.assertRaises(ValueError):
             input_data = [
@@ -227,7 +227,7 @@ class TestGrouper(unittest.TestCase):
 
                 }
             ]
-            grouped_data, common_fields = Grouper(input_data).group_by_spesefic_field('field_3')
+            grouped_data, common_fields = Grouper(input_data).group_by_specific_field('field_3')
 
 
 

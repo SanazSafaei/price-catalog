@@ -8,7 +8,7 @@ class TestPriceCatalog(unittest.TestCase):
 
     def test_initiate_price_catalog(self):
 
-        pricCat = PriceCatalog('tests/test_pricat.csv', 'sample/mappings.csv')
+        pricat = PriceCatalog('tests/test_pricat.csv', 'sample/mappings.csv')
         expected_output = [
             {
                 'ean': '978',
@@ -51,7 +51,7 @@ class TestPriceCatalog(unittest.TestCase):
                 'color': 'Brandy Nero'
             }
         ]
-        self.assertEqual(pricCat.all_data, expected_output)
+        self.assertEqual(pricat.all_data, expected_output)
 
     def test_create_catalog(self):
 
@@ -61,7 +61,7 @@ class TestPriceCatalog(unittest.TestCase):
                 'article_number': '1-1',
             }
         )
-        article1.add_varitaion(
+        article1.add_variation(
             {
                 'ean': '978',
                 'size_code': '38',
@@ -70,7 +70,7 @@ class TestPriceCatalog(unittest.TestCase):
                 'color': 'Nero'
             }
         )
-        article1.add_varitaion(
+        article1.add_variation(
             {
                 'ean': '979',
                 'size_code': '39',
@@ -86,7 +86,7 @@ class TestPriceCatalog(unittest.TestCase):
                 'article_number': '1-2',
             }
         )
-        article2.add_varitaion(
+        article2.add_variation(
             {
                 'ean': '980',
                 'size_code': '40',
@@ -95,7 +95,7 @@ class TestPriceCatalog(unittest.TestCase):
                 'color': 'Brandy Nero'
             }
         )
-        article2.add_varitaion(
+        article2.add_variation(
             {
                 'ean': '981',
                 'size_code': '40',
@@ -105,24 +105,24 @@ class TestPriceCatalog(unittest.TestCase):
             }
         )
 
-        expected_catlog = Catalog()
-        expected_catlog.set_fields(
+        expected_catalog = Catalog()
+        expected_catalog.set_fields(
             {
                 'supplier': 'Rupesco BV',
                 'size_group_code': 'EU',
             }
         )
-        expected_catlog.add_articles(article1)
-        expected_catlog.add_articles(article2)
+        expected_catalog.add_articles(article1)
+        expected_catalog.add_articles(article2)
 
         pricCat = PriceCatalog('tests/test_pricat.csv', 'sample/mappings.csv')
-        catlog = pricCat.create_catalog('article_number')
+        catalog = pricCat.create_catalog('article_number')
 
-        self.assertIsInstance(catlog, Catalog)
-        self.assertDictEqual(catlog.fields, expected_catlog.fields)
-        self.assertEqual(len(catlog.articles), len(expected_catlog.articles))
+        self.assertIsInstance(catalog, Catalog)
+        self.assertDictEqual(catalog.fields, expected_catalog.fields)
+        self.assertEqual(len(catalog.articles), len(expected_catalog.articles))
 
-        for i, article_output in enumerate(catlog.articles):
-            self.assertEqual(article_output.fields, expected_catlog.articles[i].fields)
-            self.assertEqual(article_output.variations, expected_catlog.articles[i].variations)
+        for i, article_output in enumerate(catalog.articles):
+            self.assertEqual(article_output.fields, expected_catalog.articles[i].fields)
+            self.assertEqual(article_output.variations, expected_catalog.articles[i].variations)
         

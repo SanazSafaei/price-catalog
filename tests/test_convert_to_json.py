@@ -2,7 +2,7 @@ import json
 import unittest
 from src.dto.catalog import Catalog
 from src.dto.article import Article
-from src.convert_to_json import ConverToJson
+from src.convert_to_json import ConvertToJson
 
 
 class TestConverToJson(unittest.TestCase):
@@ -17,9 +17,9 @@ class TestConverToJson(unittest.TestCase):
                 'article_field_2': 4
             }
         )
-        article.add_varitaion(
+        article.add_variation(
             {
-                'varitation_field_1': 5,
+                'variation_field_1': 5,
                 'variation_field_2': 6
             }
         )
@@ -43,7 +43,7 @@ class TestConverToJson(unittest.TestCase):
                         'article_field_2': 4,
                         'Variations': [
                             {
-                            'varitation_field_1': 5,
+                            'variation_field_1': 5,
                             'variation_field_2': 6
                             }
                         ]
@@ -52,16 +52,16 @@ class TestConverToJson(unittest.TestCase):
             }
         }
 
-        file_path = 'test_successful_convert_catlog_to_json'
-        ConverToJson().convert_catalog_to_json(catalog, file_path)
-        with open(file_path+'.json', 'r', encoding= "utf-8") as output_data:
+        file_path = 'tests/test_successful_convert_catalog_to_json.json'
+        ConvertToJson().convert_catalog_to_json(catalog, file_path)
+        with open(file_path, 'r', encoding= "utf-8") as output_data:
             real_json_output = json.load(output_data)
 
         self.assertDictEqual(except_json_converted_output, real_json_output)
 
-    def test_conver_empty_article_to_json(self):
+    def test_convert_empty_article_to_json(self):
 
         with self.assertRaises(TypeError):
             catalog = Catalog()
-            file_path = 'test_successful_convert_catlog_to_json'
-            ConverToJson().convert_catalog_to_json(catalog, file_path)
+            file_path = 'tests/test_successful_convert_catalog_to_json.json'
+            ConvertToJson().convert_catalog_to_json(catalog, file_path)

@@ -5,12 +5,12 @@ from src.dto.catalog import Catalog
 from src.dto.article import Article
 
 class PriceCatalog:
-    """recives a price catlog csv adress and generates a catlog object."""
+    """recipes a price catalog csv address and generates a catalog object."""
 
     all_data = []
 
-    def __init__(self, catlog_data_file_address: str, mapping_file_address: str) -> None:
-        self.catalog_file = FileManager(catlog_data_file_address)
+    def __init__(self, catalog_data_file_address: str, mapping_file_address: str) -> None:
+        self.catalog_file = FileManager(catalog_data_file_address)
         self.mapping_file_address = mapping_file_address
         self._map_all_data()
 
@@ -24,32 +24,32 @@ class PriceCatalog:
             self.all_data.append(mapper.map(line))
 
 
-    def create_catalog(self, article_identifire_field: str) -> Catalog:
-        """generates a catlog object."""
+    def create_catalog(self, article_identifier_field: str) -> Catalog:
+        """generates a catalog object."""
 
         catalog = Catalog()
         grouper = Grouper(self.all_data)
         catalog_fields = grouper.find_common_fields_with_values()
         catalog.set_fields(catalog_fields)
 
-        #create articles, article fields and append it to catlog
-        articles, all_article_catlog_fields = grouper.group_by_spesefic_field(article_identifire_field)
-        article_fileds_name_list = set(all_article_catlog_fields.keys()) - set(catalog_fields.keys())
+        #create articles, article fields and append it to catalog
+        articles, all_article_catalog_fields = grouper.group_by_specific_field(article_identifier_field)
+        article_fields_name_list = set(all_article_catalog_fields.keys()) - set(catalog_fields.keys())
 
-        for article_identifire_value, variations in articles.items():
+        for article_identifier_value, variations in articles.items():
 
-            article_obj = Article(article_number=article_identifire_value)
+            article_obj = Article(article_number=article_identifier_value)
 
-            article_fields = {field_name: all_article_catlog_fields[field_name][article_identifire_value] for field_name in article_fileds_name_list}
+            article_fields = {field_name: all_article_catalog_fields[field_name][article_identifier_value] for field_name in article_fields_name_list}
 
             article_obj.set_fields(article_fields)
 
             for variation in variations:
                 #remove common fields
-                for common_field in all_article_catlog_fields:
+                for common_field in all_article_catalog_fields:
                     variation.pop(common_field)
 
-                article_obj.add_varitaion(variation)
+                article_obj.add_variation(variation)
 
             catalog.add_articles(article_obj)
 
