@@ -5,7 +5,7 @@ from src.dto.article import Article
 from src.convert_to_json import ConvertToJson
 
 
-class TestConverToJson(unittest.TestCase):
+class TestConvertToJson(unittest.TestCase):
 
 
     def test_convert_catalog_to_json(self):

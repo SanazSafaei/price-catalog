@@ -1,6 +1,6 @@
 # Price Catalog Serializer
 
-Price Catalog Serializer is a Python program for dealing with csv files contain price of variations. It converts the data to 3 groups of Catalog fields, Articles and vaiation and represent the data as json file.
+Price Catalog Serializer is a Python program for dealing with csv files contain price of variations. It converts the data to 3 groups of Catalog fields, Articles and variation and represent the data as json file.
 
 ## Installation
 
@@ -37,7 +37,7 @@ python3 main.py
 
 1. Add your pricat.csv file in project directory or pass the file address as input argument with -f.
 2. Add your mapping.csv file in project directory or pass the file address as input argument with -m.
-3. If you want to combine multiple fields you need to add the field names in mappings.csv file with empty source and destination value. this is a sample of mapping.csv with customised field:
+3. If you want to combine multiple fields you need to add the field names in mappings.csv file with empty source and destination value. this is a sample of mapping.csv with customized field:
 
 ```
 source;destination;source_type;destination_type
@@ -45,9 +45,9 @@ winter;Winter;season;season
 ;;price_buy_net|currency;
 ```
 
-4.The defualt article identifier field is article_number, if you want to customize it you need to use -a flag.
+4.The default article identifier field is article_number, if you want to customize it you need to use -a flag.
 
-5.The defualt result file name is json_price_catalog.json, if you want to customize it you need to use -j flag.
+5.The default result file name is json_price_catalog.json, if you want to customize it you need to use -j flag.
 
 ```bash
 python3 run.py --help
@@ -69,7 +69,7 @@ options:
 ```
 
 ## Test Section
-Here is the report of test converage of current project.
+Here is the report of test coverage of current project.
 
 | Name                             |    Stmts |     Miss |   Cover |
 |--------------------------------- | -------: | -------: | ------: |
