@@ -4,6 +4,13 @@ from file_manager import FileManager
 
 class TestFileManager(unittest.TestCase):
 
+    def setUp(self) -> None:
+        self.mapper_file = FileManager('mappings.csv')
+        return super().setUp()
+
+    def tearDown(self):
+        self.mapper_file.file.close()
+
     def test_detect_first_line_fields(self):
         headline = ['source', 'destination', 'source_type', 'destination_type']
         self.assertEqual(headline, self.mapper_file.headlines)
@@ -22,13 +29,3 @@ class TestFileManager(unittest.TestCase):
             }
         self.assertDictEqual(data, self.mapper_file.get_row_data())
 
-    def setUp(self) -> None:
-        self.mapper_file = FileManager('mappings.csv')
-        return super().setUp()
-
-    def tearDown(self):
-        self.mapper_file.file.close()
-
-
-if __name__ == '__main__':
-    unittest.main()

@@ -8,7 +8,7 @@ class TestPriceCatalog(unittest.TestCase):
 
     def test_initiate_price_catalog(self):
 
-        pricCat = PriceCatalog('tests/test_pricat.csv')
+        pricCat = PriceCatalog('tests/test_pricat.csv', 'mappings.csv')
         expected_output = [
             {
                 'ean': '978',
