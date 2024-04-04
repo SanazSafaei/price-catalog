@@ -1,5 +1,6 @@
 import unittest
 from src.grouper import Grouper
+from src.custom_errors.data_is_not_valid import DataIsNotValid
 
 
 class TestGrouper(unittest.TestCase):
@@ -45,7 +46,7 @@ class TestGrouper(unittest.TestCase):
 
     def test_bad_structure_in_find_common_field(self):
 
-        with self.assertRaises(ValueError):
+        with self.assertRaises(DataIsNotValid):
             input_data = [
                 {
                     'common_field_1': 1,
@@ -192,7 +193,7 @@ class TestGrouper(unittest.TestCase):
         self.assertDictEqual(grouped_data, expected_output)
 
     def test_bad_structure_in_group_by_specific_field(self):
-        with self.assertRaises(ValueError):
+        with self.assertRaises(DataIsNotValid):
             input_data = [
                 {
                     'common_field_1': 1,
@@ -208,7 +209,7 @@ class TestGrouper(unittest.TestCase):
 
     def test_not_available_id_in_group_by_specific_field(self):
         
-        with self.assertRaises(ValueError):
+        with self.assertRaises(DataIsNotValid):
             input_data = [
                 {
                     'common_field_1': 1,

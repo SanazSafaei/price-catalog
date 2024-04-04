@@ -1,4 +1,4 @@
-
+from src.custom_errors.data_is_not_valid import DataIsNotValid
 
 class Grouper:
     """"classify list of dictionaries to their common {field: values}"""
@@ -26,7 +26,7 @@ class Grouper:
             return common_field_value
 
         except Exception:
-            raise ValueError('data is not valid.')
+            raise DataIsNotValid()
 
 
     def group_by_specific_field(self, article_id_name: str) -> tuple[dict[str, list[dict[str, str]]], dict[str, dict[str, str]]]:
@@ -66,4 +66,4 @@ class Grouper:
             return grouped_items, common_field_value
         
         except Exception:
-            raise ValueError('data is not valid.')
+            raise DataIsNotValid()
