@@ -12,7 +12,7 @@ class Main():
 
         price_cat = PriceCatalog(input_args.file_path, input_args.mapper_path)
         catalaog = price_cat.create_catalog(input_args.article_identifier)
-        ConverToJson().convert_catalog_to_json(catalaog)
+        ConverToJson().convert_catalog_to_json(catalaog, input_args.json_file_name)
 
     def define_input_arguments(self) -> ArgumentParser:
         """defines inputs and main --help fields"""
@@ -25,6 +25,9 @@ class Main():
         parser.add_argument('-a' ,'--article_identifier', dest='article_identifier',
                             type=str, default='article_number',
                             help='Path of mapping file. sample article_identifier')
+        parser.add_argument('-j' ,'--json_file_name', dest='json_file_name',
+                            type=str, default='json_price_catalog',
+                            help='Path of mapping file. sample json_response')
 
         return parser
 

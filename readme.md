@@ -47,6 +47,8 @@ winter;Winter;season;season
 
 4.The defualt article identifier field is article_number, if you want to customize it you need to use -a flag.
 
+5.The defualt result file name is json_price_catalog.json, if you want to customize it you need to use -j flag.
+
 ```bash
 python3 main.py --help
 
@@ -62,6 +64,8 @@ python3 main.py --help
 #                         Path of mapping file. sample /dir/mapping.csv
 #   -a ARTICLE_IDENTIFIER, --article_identifier ARTICLE_IDENTIFIER
 #                         Path of mapping file. sample article_identifierpricat.csv
+#   -j JSON_FILE_NAME, --json_file_name JSON_FILE_NAME
+#                         Path of mapping file. sample json_response
 ```
 
 ## Test Section
