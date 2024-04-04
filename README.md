@@ -1,10 +1,10 @@
 # Price Catalog Serializer
 
-Price Catalog Serializer is a Python program for dealing with csv files contain price of variations. It converts the data to 3 groups of Catalog fields, Articles and variation and represent the data as json file.
+Price Catalog Serializer is a Python program for handling CSV files containing the price of variations. It converts the data into three groups of Catalog fields, Articles, and Variations and represents the data as a JSON file.
 
 ## Installation
 
-For setup this project, you need to make a python virtualenv first and install requirements file. Run this command on you command-line.
+To set up this project, you need to make a python virtualenv first and install the requirements file. Run this command on your command-line.To set up this project, you should create a Python virtual environment first and install the required packages by running the command provided in the terminal.
 
 ```bash
 pip install virtualenv
@@ -13,13 +13,14 @@ source env/bin/activate
 pip install -r requirements.txt
 ```
 
-For running tests in command line you can use this command:
+For running tests in the command line you can use this command:
 
 ```bash
 coverage run -m unittest discover tests
 ```
 
-For getting coverage reports you can run this command (you can also find the result on the end of this document) :
+Here's the command to run for coverage reports (also available at the end of the document):
+
 ```bash
 coverage report -m
 #or
@@ -29,15 +30,19 @@ coverage html
 
 ## Usage
 
-0. You can run program with default values with below command.
+0. To run the program with the default values, use the command below.
 
 ```bash
 python3 main.py
 ```
 
-1. Add your pricat.csv file in project directory or pass the file address as input argument with -f.
-2. Add your mapping.csv file in project directory or pass the file address as input argument with -m.
-3. If you want to combine multiple fields you need to add the field names in mappings.csv file with empty source and destination value. this is a sample of mapping.csv with customized field:
+To use this tool, you need to follow these three steps:
+
+1. First, you must specify the file address as an input argument using the -f option. Alternatively, you can override the pricat.csv file in the sample directory.
+
+2. Next, specify the file address as an input argument using the -m option. Again, you can override the pricat.csv file in the sample directory.
+
+3. If you want to combine multiple fields, you need to add the corresponding field names in the mapping.csv file. Please note that you should leave the source and destination values blank for the customized field. Here's an example of mapping.csv with a customized field:
 
 ```
 source;destination;source_type;destination_type
@@ -45,9 +50,9 @@ winter;Winter;season;season
 ;;price_buy_net|currency;
 ```
 
-4.The default article id field is article_number, if you want to customize it you need to use -a flag.
+4. The default article id field is "article_number". If you want to customize it, you need to use the -a flag. 
 
-5.The default result file name is json_price_catalog.json, if you want to customize it you need to use -j flag.
+5. The default result file name is "json_price_catalog.json". If you want to customize it, you need to use the -n flag.
 
 ```bash
 python3 run.py --help
@@ -69,7 +74,7 @@ options:
 ```
 
 ## Test Section
-Here is the report of test coverage of current project.
+Here is the report of test coverage of the current project.
 
 | Name                             |    Stmts |     Miss |   Cover |
 |--------------------------------- | -------: | -------: | ------: |
@@ -91,7 +96,7 @@ Here is the report of test coverage of current project.
 ## Next Steps:
 
 - Read and process each data line separately for better in-memory performance for large files
-- use csv library
+- use CSV library
 
 
 ## License
