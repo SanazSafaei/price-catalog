@@ -26,7 +26,7 @@ class Main:
                             type=str, default='article_number',
                             help='Path of mapping file. sample article_id')
         parser.add_argument('-n' ,'--json_file_name', dest='json_file_name',
-                            type=str, default='sample/json_price_catalog.json',
+                            type=str, default='json_price_catalog.json',
                             help='Path of mapping file. sample json_response')
 
         return parser
