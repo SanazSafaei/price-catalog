@@ -1,5 +1,5 @@
 
-class Catalog():
+class Catalog:
 
     def __init__(self) -> None:
         self.fields = []

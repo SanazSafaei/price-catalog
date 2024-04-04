@@ -1,7 +1,7 @@
 import unittest
-from article import Article
-from catalog import Catalog
-from price_catalog import PriceCatalog
+from src.article import Article
+from src.catalog import Catalog
+from src.price_catalog import PriceCatalog
 
 
 class TestPriceCatalog(unittest.TestCase):

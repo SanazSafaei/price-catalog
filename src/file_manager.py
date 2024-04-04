@@ -1,5 +1,5 @@
 
-class FileManager():
+class FileManager:
     """converting csv files to dict objects, using first-line as keys."""
 
     def __init__(self, address: str) -> None:

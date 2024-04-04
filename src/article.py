@@ -1,6 +1,6 @@
 
 
-class Article():
+class Article:
 
     def __init__(self, article_number: int = 0) -> None:
         self.article_number = article_number

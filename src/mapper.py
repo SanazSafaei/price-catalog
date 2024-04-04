@@ -1,7 +1,7 @@
-from file_manager import FileManager
+from src.file_manager import FileManager
 
 
-class Mapper():
+class Mapper:
     """mapping a dictionary to mapping csv file fieldss.
     creates destination fields and removes source fields."""
 

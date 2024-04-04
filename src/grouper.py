@@ -1,6 +1,6 @@
 
 
-class Grouper():
+class Grouper:
     """"classify list of dictionaries to their common {field: values}"""
 
     def __init__(self, data_list: list) -> None:

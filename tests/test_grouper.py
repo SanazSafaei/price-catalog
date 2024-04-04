@@ -1,5 +1,5 @@
 import unittest
-from grouper import Grouper
+from src.grouper import Grouper
 
 
 class TestGrouper(unittest.TestCase):

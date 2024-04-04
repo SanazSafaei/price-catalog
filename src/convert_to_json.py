@@ -1,7 +1,7 @@
 import json
-from catalog import Catalog
+from src.catalog import Catalog
 
-class ConverToJson():
+class ConverToJson:
     """converts objects to a json object."""
 
     DEFAULT_JSON_FILE_ADDRESS = 'json_price_catalog'

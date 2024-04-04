@@ -1,5 +1,5 @@
 import unittest
-from mapper import Mapper
+from src.mapper import Mapper
 
 
 class TestMapper(unittest.TestCase):

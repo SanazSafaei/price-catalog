@@ -1,8 +1,8 @@
 from argparse import ArgumentParser
-from price_catalog import PriceCatalog
-from convert_to_json import ConverToJson
+from src.price_catalog import PriceCatalog
+from src.convert_to_json import ConverToJson
 
-class Main():
+class Main:
 
     def main(self):
         """execution of program"""

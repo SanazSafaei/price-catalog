@@ -1,8 +1,8 @@
 import json
 import unittest
-from catalog import Catalog
-from article import Article
-from convert_to_json import ConverToJson
+from src.catalog import Catalog
+from src.article import Article
+from src.convert_to_json import ConverToJson
 
 
 class TestConverToJson(unittest.TestCase):

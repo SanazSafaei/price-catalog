@@ -1,10 +1,10 @@
-from file_manager import FileManager
-from mapper import Mapper
-from grouper import Grouper
-from catalog import Catalog
-from article import Article
+from src.file_manager import FileManager
+from src.mapper import Mapper
+from src.grouper import Grouper
+from src.catalog import Catalog
+from src.article import Article
 
-class PriceCatalog():
+class PriceCatalog:
     """recives a price catlog csv adress and generates a catlog object."""
 
     all_data = []
