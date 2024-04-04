@@ -27,7 +27,7 @@ class Mapper():
                 mappig['destination_type'] = destination_type
             self.MAPPING.append(mappig)
 
-    def map(self, data: dict) -> dict | None:
+    def map(self, data: dict) -> dict[str, str] | None:
         """mapping a dictionary to desired values. 
         adds new destination fields and removes source fields."""
 

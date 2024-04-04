@@ -6,7 +6,7 @@ class Grouper():
     def __init__(self, data_list: list) -> None:
         self.data_list = data_list
 
-    def find_common_fields_with_values(self) -> list:
+    def find_common_fields_with_values(self) -> list[dict[str,str]]:
         """"classify a list of dictionary to their common {field: values}"""
 
         try:
@@ -29,7 +29,7 @@ class Grouper():
             raise ValueError('data is not valid.')
 
 
-    def group_by_spesefic_field(self, article_identifier_name: str) -> tuple[dict, dict]:
+    def group_by_spesefic_field(self, article_identifier_name: str) -> tuple[dict[str, str], dict[str, str]]:
         """"classify a list of dictionary with a identifier and
         find objects common {article_identifier_name: values}"""
         try:

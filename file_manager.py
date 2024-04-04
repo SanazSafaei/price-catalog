@@ -8,7 +8,7 @@ class FileManager():
         self.file = open(address, 'r', encoding="utf-8")
         self._generate_headline()
 
-    def get_row_data(self) -> dict | None:
+    def get_row_data(self) -> dict[str, str] | None:
         """reading each line of file and convert it to dict."""
         row = self.file.readline()  #skip \n character
         if '\n' in row:
@@ -24,7 +24,7 @@ class FileManager():
 
         return data_object
 
-    def get_all_data(self) -> list: # is it needed?
+    def get_all_data(self) -> list[dict[str, str]]: # is it needed?
         """returns a list of objects from file's data."""
         data = []
 

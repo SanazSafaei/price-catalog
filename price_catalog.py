@@ -12,10 +12,10 @@ class PriceCatalog():
     def __init__(self, catlog_data_file_address: str, mapping_file_address: str) -> None:
         self.catalog_file = FileManager(catlog_data_file_address)
         self.mapping_file_address = mapping_file_address
-        self._set_all_data()
+        self._map_all_data()
 
 
-    def _set_all_data(self):
+    def _map_all_data(self) -> None:
         """generating catalog mapped data."""
 
         self.all_data = []
@@ -32,7 +32,7 @@ class PriceCatalog():
         catalog_fields = grouper.find_common_fields_with_values()
         catalog.set_fields(catalog_fields)
 
-        #--------------------------------------------#
+        #create articles, article fields and append it to catlog
         articles, all_article_catlog_fields = grouper.group_by_spesefic_field(article_identifire_field)
         article_fileds_name_list = set(all_article_catlog_fields.keys()) - set(catalog_fields.keys())
 
