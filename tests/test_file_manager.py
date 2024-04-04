@@ -18,7 +18,7 @@ class TestFileManager(unittest.TestCase):
     def test_error_on_empty_file(self):
 
         with self.assertRaises(ValueError):
-            FileManager('test.csv')
+            FileManager('tests/test.csv')
 
     def test_row_data(self):
         data = {
