@@ -50,7 +50,7 @@ winter;Winter;season;season
 5.The defualt result file name is json_price_catalog.json, if you want to customize it you need to use -j flag.
 
 ```bash
-python3 main.py --help
+python3 run.py --help
 
 #usage: main.py [-h] [-f FILE_PATH] [-m MAPPER_PATH] [-a ARTICLE_IDENTIFIER]
 
@@ -73,19 +73,20 @@ Here is the report of test converage of current project.
 
 | Name                             |    Stmts |     Miss |   Cover |
 |--------------------------------- | -------: | -------: | ------: |
-| article.py                       |        9 |        0 |    100% |
-| catalog.py                       |        8 |        0 |    100% |
-| convert\_to\_json.py             |       15 |        0 |    100% |
-| file\_manager.py                 |       28 |        4 |     86% |
-| grouper.py                       |       39 |        0 |    100% |
-| mapper.py                        |       24 |        0 |    100% |
-| price\_catalog.py                |       32 |        0 |    100% |
+| src/convert\_to\_json.py         |       15 |        0 |    100% |
+| src/dto/article.py               |        9 |        0 |    100% |
+| src/dto/catalog.py               |        8 |        0 |    100% |
+| src/file\_manager.py             |       28 |        4 |     86% |
+| src/grouper.py                   |       39 |        0 |    100% |
+| src/mapper.py                    |       41 |        0 |    100% |
+| src/price\_catalog.py            |       33 |        0 |    100% |
 | tests/test\_convert\_to\_json.py |       24 |        0 |    100% |
-| tests/test\_file\_manager.py     |       19 |        1 |     95% |
+| tests/test\_file\_manager.py     |       17 |        0 |    100% |
 | tests/test\_grouper.py           |       40 |        0 |    100% |
 | tests/test\_mapper.py            |       26 |        0 |    100% |
 | tests/test\_price\_catalog.py    |       30 |        0 |    100% |
-|                        **TOTAL** |  **294** |    **5** | **98%** |
+|                        **TOTAL** |  **310** |    **4** | **99%** |
+
 
 ## Next Steps:
 
