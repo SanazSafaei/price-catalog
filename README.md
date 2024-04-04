@@ -45,14 +45,14 @@ winter;Winter;season;season
 ;;price_buy_net|currency;
 ```
 
-4.The default article identifier field is article_number, if you want to customize it you need to use -a flag.
+4.The default article id field is article_number, if you want to customize it you need to use -a flag.
 
 5.The default result file name is json_price_catalog.json, if you want to customize it you need to use -j flag.
 
 ```bash
 python3 run.py --help
 
-usage: run.py [-h] [-f FILE_PATH] [-m MAPPER_PATH] [-a ARTICLE_IDENTIFIER] [-n JSON_FILE_NAME]
+usage: run.py [-h] [-f FILE_PATH] [-m MAPPER_PATH] [-a ARTICLE_id] [-n JSON_FILE_NAME]
 
 Process catalog csv data and convert it to json file.
 
@@ -62,8 +62,8 @@ options:
                         Path of data file. sample /dir/pricat.csv
   -m MAPPER_PATH, --mapper MAPPER_PATH
                         Path of mapping file. sample /dir/mapping.csv
-  -a ARTICLE_IDENTIFIER, --article_identifier ARTICLE_IDENTIFIER
-                        Path of mapping file. sample article_identifier
+  -a ARTICLE_id, --article_id ARTICLE_id
+                        Path of mapping file. sample article_id
   -n JSON_FILE_NAME, --json_file_name JSON_FILE_NAME
                         Path of mapping file. sample json_response
 ```

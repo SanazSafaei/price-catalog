@@ -24,7 +24,7 @@ class PriceCatalog:
             self.all_data.append(mapper.map(line))
 
 
-    def create_catalog(self, article_identifier_field: str) -> Catalog:
+    def create_catalog(self, article_id_field: str) -> Catalog:
         """generates a catalog object."""
 
         catalog = Catalog()
@@ -33,14 +33,14 @@ class PriceCatalog:
         catalog.set_fields(catalog_fields)
 
         #create articles, article fields and append it to catalog
-        articles, all_article_catalog_fields = grouper.group_by_specific_field(article_identifier_field)
+        articles, all_article_catalog_fields = grouper.group_by_specific_field(article_id_field)
         article_fields_name_list = set(all_article_catalog_fields.keys()) - set(catalog_fields.keys())
 
-        for article_identifier_value, variations in articles.items():
+        for article_id_value, variations in articles.items():
 
-            article_obj = Article(article_number=article_identifier_value)
+            article_obj = Article(article_number=article_id_value)
 
-            article_fields = {field_name: all_article_catalog_fields[field_name][article_identifier_value] for field_name in article_fields_name_list}
+            article_fields = {field_name: all_article_catalog_fields[field_name][article_id_value] for field_name in article_fields_name_list}
 
             article_obj.set_fields(article_fields)
 

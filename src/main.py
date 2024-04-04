@@ -11,7 +11,7 @@ class Main:
         input_args = parser.parse_args()
 
         price_cat = PriceCatalog(input_args.file_path, input_args.mapper_path)
-        catalog = price_cat.create_catalog(input_args.article_identifier)
+        catalog = price_cat.create_catalog(input_args.article_id)
         ConvertToJson().convert_catalog_to_json(catalog, input_args.json_file_name)
 
     def define_input_arguments(self) -> ArgumentParser:
@@ -22,9 +22,9 @@ class Main:
                             help='Path of data file. sample /dir/pricat.csv')
         parser.add_argument('-m','--mapper', dest='mapper_path',type=str, default='sample/mappings.csv',
                             help='Path of mapping file. sample /dir/mapping.csv')
-        parser.add_argument('-a' ,'--article_identifier', dest='article_identifier',
+        parser.add_argument('-a' ,'--article_id', dest='article_id',
                             type=str, default='article_number',
-                            help='Path of mapping file. sample article_identifier')
+                            help='Path of mapping file. sample article_id')
         parser.add_argument('-n' ,'--json_file_name', dest='json_file_name',
                             type=str, default='sample/json_price_catalog.json',
                             help='Path of mapping file. sample json_response')

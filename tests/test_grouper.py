@@ -206,7 +206,7 @@ class TestGrouper(unittest.TestCase):
             ]
             grouped_data, common_fields = Grouper(input_data).group_by_specific_field('field_3')
 
-    def test_not_available_identifier_in_group_by_specific_field(self):
+    def test_not_available_id_in_group_by_specific_field(self):
         
         with self.assertRaises(ValueError):
             input_data = [

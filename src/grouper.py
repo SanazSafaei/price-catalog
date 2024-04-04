@@ -29,9 +29,9 @@ class Grouper:
             raise ValueError('data is not valid.')
 
 
-    def group_by_specific_field(self, article_identifier_name: str) -> tuple[dict[str, list[dict[str, str]]], dict[str, dict[str, str]]]:
-        """"classify a list of dictionary with a identifier and
-        find objects common {article_identifier_name: values}"""
+    def group_by_specific_field(self, article_id_name: str) -> tuple[dict[str, list[dict[str, str]]], dict[str, dict[str, str]]]:
+        """"classify a list of dictionary with a id and
+        find objects common {article_id_name: values}"""
         try:
             grouped_items = {}
             common_field_value = {}
@@ -39,28 +39,28 @@ class Grouper:
 
             for item in self.data_list:
 
-                if item.get(article_identifier_name) and item.get(article_identifier_name) in grouped_items:
-                    grouped_items[item[article_identifier_name]].append(item)
+                if item.get(article_id_name) and item.get(article_id_name) in grouped_items:
+                    grouped_items[item[article_id_name]].append(item)
 
                     common_field_value_copy = common_field_value.copy()
                     for item_field, value_lists in common_field_value_copy.items():
 
-                        if ((value_lists.get(item[article_identifier_name]) and 
-                            item[item_field] != value_lists[item[article_identifier_name]]) or
-                            not value_lists.get(item[article_identifier_name])) :
+                        if ((value_lists.get(item[article_id_name]) and 
+                            item[item_field] != value_lists[item[article_id_name]]) or
+                            not value_lists.get(item[article_id_name])) :
 
                             deleted_fields.append(item_field)
                             common_field_value.pop(item_field)
 
                 else:
-                    grouped_items[item[article_identifier_name]] = [item]
+                    grouped_items[item[article_id_name]] = [item]
                     for item_field in item:
                         if item_field not in deleted_fields:
 
                             if common_field_value.get(item_field):
-                                common_field_value.get(item_field).update({item[article_identifier_name]: item[item_field]})
+                                common_field_value.get(item_field).update({item[article_id_name]: item[item_field]})
                             else:
-                                val = {item[article_identifier_name]: item[item_field]}
+                                val = {item[article_id_name]: item[item_field]}
                                 common_field_value[item_field] = val
 
             return grouped_items, common_field_value
