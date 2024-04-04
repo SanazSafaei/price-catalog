@@ -52,20 +52,20 @@ winter;Winter;season;season
 ```bash
 python3 run.py --help
 
-#usage: main.py [-h] [-f FILE_PATH] [-m MAPPER_PATH] [-a ARTICLE_IDENTIFIER]
+usage: run.py [-h] [-f FILE_PATH] [-m MAPPER_PATH] [-a ARTICLE_IDENTIFIER] [-n JSON_FILE_NAME]
 
-#Process Catalog csv data and convert it to json file.
+Process catlog csv data and convert it to json file.
 
-# options:
-#   -h, --help            show this help message and exit
-#   -f FILE_PATH, --filename FILE_PATH
-#                         Path of data file. sample /dir/pricat.csv
-#   -m MAPPER_PATH, --mapper MAPPER_PATH
-#                         Path of mapping file. sample /dir/mapping.csv
-#   -a ARTICLE_IDENTIFIER, --article_identifier ARTICLE_IDENTIFIER
-#                         Path of mapping file. sample article_identifierpricat.csv
-#   -j JSON_FILE_NAME, --json_file_name JSON_FILE_NAME
-#                         Path of mapping file. sample json_response
+options:
+  -h, --help            show this help message and exit
+  -f FILE_PATH, --filename FILE_PATH
+                        Path of data file. sample /dir/pricat.csv
+  -m MAPPER_PATH, --mapper MAPPER_PATH
+                        Path of mapping file. sample /dir/mapping.csv
+  -a ARTICLE_IDENTIFIER, --article_identifier ARTICLE_IDENTIFIER
+                        Path of mapping file. sample article_identifier
+  -n JSON_FILE_NAME, --json_file_name JSON_FILE_NAME
+                        Path of mapping file. sample json_response
 ```
 
 ## Test Section
