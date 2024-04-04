@@ -1,6 +1,6 @@
-# Price Catlog Serializer
+# Price Catalog Serializer
 
-Price Catlog Serializer is a Python program for dealing with csv files contain price of variations. It converts the data to 3 groups of Catlog fields, Articles and vaiation and represent the data as json file.
+Price Catalog Serializer is a Python program for dealing with csv files contain price of variations. It converts the data to 3 groups of Catalog fields, Articles and vaiation and represent the data as json file.
 
 ## Installation
 
@@ -54,7 +54,7 @@ python3 main.py --help
 
 #usage: main.py [-h] [-f FILE_PATH] [-m MAPPER_PATH] [-a ARTICLE_IDENTIFIER]
 
-#Process catlog csv data and convert it to json file.
+#Process Catalog csv data and convert it to json file.
 
 # options:
 #   -h, --help            show this help message and exit
