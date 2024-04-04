@@ -20,8 +20,8 @@ class PriceCatalog():
 
         self.all_data = []
         mapper = Mapper(self.mapping_file_address)
-        while x := self.catalog_file.get_row_data():
-            self.all_data.append(mapper.map(x))
+        while line := self.catalog_file.get_row_data():
+            self.all_data.append(mapper.map(line))
 
 
     def create_catalog(self, article_identifire_field: str) -> Catalog:
@@ -46,8 +46,8 @@ class PriceCatalog():
 
             for variation in variations:
                 #remove common fields
-                for commo_field in all_article_catlog_fields:
-                    variation.pop(commo_field)
+                for common_field in all_article_catlog_fields:
+                    variation.pop(common_field)
 
                 article_obj.add_varitaion(variation)
 
