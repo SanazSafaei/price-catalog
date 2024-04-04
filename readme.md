@@ -83,6 +83,12 @@ Here is the report of test converage of current project.
 | tests/test\_price\_catalog.py    |       30 |        0 |    100% |
 |                        **TOTAL** |  **294** |    **5** | **98%** |
 
+## Next Steps:
+
+- Read and process each data line separately for better in-memory performance for large files
+- use csv library
+
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
