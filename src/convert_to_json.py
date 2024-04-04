@@ -20,7 +20,7 @@ class ConverToJson:
                 json_data['Catalog']['Articles'].append(article.fields | {'Variations': article.variations})
 
             with open(json_file_address, "w", encoding="utf-8") as file:
-                json.dump(json_data, file)
+                json.dump(json_data, file, indent=2)
 
         except TypeError:
             raise TypeError('Catalog is not valid')
