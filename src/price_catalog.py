@@ -1,8 +1,8 @@
 from src.file_manager import FileManager
 from src.mapper import Mapper
 from src.grouper import Grouper
-from src.catalog import Catalog
-from src.article import Article
+from src.dto.catalog import Catalog
+from src.dto.article import Article
 
 class PriceCatalog:
     """recives a price catlog csv adress and generates a catlog object."""

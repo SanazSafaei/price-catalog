@@ -1,5 +1,5 @@
 import json
-from src.catalog import Catalog
+from src.dto.catalog import Catalog
 
 class ConverToJson:
     """converts objects to a json object."""

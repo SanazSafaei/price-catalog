@@ -1,7 +1,7 @@
 import json
 import unittest
-from src.catalog import Catalog
-from src.article import Article
+from src.dto.catalog import Catalog
+from src.dto.article import Article
 from src.convert_to_json import ConverToJson
 
 

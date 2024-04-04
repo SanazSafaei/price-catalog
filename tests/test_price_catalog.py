@@ -1,6 +1,6 @@
 import unittest
-from src.article import Article
-from src.catalog import Catalog
+from src.dto.article import Article
+from src.dto.catalog import Catalog
 from src.price_catalog import PriceCatalog
 
 
